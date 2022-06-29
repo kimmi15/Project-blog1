@@ -134,9 +134,9 @@ const deleteblogByQuery = async function (req, res) {
 
         let deleted = await BlogModel.updateMany( mandatory, { isDeleted: true, deletedAt: new Date() }, { new: true } )
         return res.status(200).send({ status: true, data: deleted })
-    } catch (err) {
-        return res.status(500).send({ status: false, message: err.message })
-    }
+     } catch (err) {
+         return res.status(500).send({ status: false, message: err.message })
+     }
 }
 
 module.exports.createBlog = createBlog;

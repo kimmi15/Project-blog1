@@ -8,12 +8,17 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!") 
 })
 
-router.post("/authors", AuthorController.createAuthor)
-router.post("/blogs", commnMid.Authentication, BlogController.createBlog)
-router.get('/blogs', commnMid.Authentication, BlogController.getAllBlogs)
-router.put("/blogs/:blogId", commnMid.Authentication, commnMid.Authorisation, BlogController.updateBlog)
-router.delete("/blogs/:blogId", commnMid.Authentication, commnMid.Authorisation, BlogController.deleteblog)
-router.delete("/blogs", commnMid.Authentication, commnMid.mid3, BlogController.deleteblogByQuery)
+router.post("/authors", AuthorController.createAuthor)  //1
 
-router.post("/login", AuthorController.loginAuthor)
+router.post("/login", AuthorController.loginAuthor) //2
+
+router.post("/blogs", commnMid.Authentication, BlogController.createBlog) //3
+
+router.get('/blogs', commnMid.Authentication, BlogController.getAllBlogs)  //4
+
+router.put("/blogs/:blogId", commnMid.Authentication, commnMid.Authorisation, BlogController.updateBlog) //5
+
+router.delete("/blogs/:blogId", commnMid.Authentication, commnMid.Authorisation, BlogController.deleteblog)  //6
+
+router.delete("/blogs", commnMid.Authentication, commnMid.mid3, BlogController.deleteblogByQuery)  //7
 module.exports = router;
